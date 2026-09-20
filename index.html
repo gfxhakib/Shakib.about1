@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<html lang="bn" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>🔥 SHAKIB | VIP BIO — Official Portfolio</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Official VIP Cyberpunk Bio & Portfolio of SHAKIB. Video Editor, Gamer, Creator & Tech Lover." />
+  <meta name="keywords" content="Shakib, Shakib Chowdhury, VIP Bio, Cyberpunk Portfolio, Video Editor Bangladesh" />
+  <meta name="author" content="Shakib Chowdhury" />
+  <meta name="theme-color" content="#ff003c" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://i.ibb.co/Y4STcXpC/1000018932.png" />
+
+  <!-- Google Fonts: Orbitron, Rajdhani, Poppins, Hind Siliguri -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&family=Orbitron:wght@600;800;900&family=Poppins:wght@300;400;600;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    /* ===================================================
+       1. ROOT VARIABLES & CYBER THEME SETUP
+    =================================================== */
+    :root {
+      --bg-main: #06070b;
+      --bg-secondary: #0c0e17;
+      --bg-card: rgba(14, 16, 26, 0.75);
+      --border-color: rgba(255, 0, 60, 0.25);
+      --border-glow: rgba(255, 0, 60, 0.7);
+      --neon-red: #ff003c;
+      --neon-pink: #ff1493;
+      --neon-cyan: #00f3ff;
+      --text-main: #f5f6fa;
+      --text-muted: #9aa0b4;
+      --glass-blur: blur(16px);
+      --nav-height: 62px;
+      --card-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
+      --transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    html.light {
+      --bg-main: #f0f2f8;
+      --bg-secondary: #ffffff;
+      --bg-card: rgba(255, 255, 255, 0.85);
+      --border-color: rgba(255, 0, 60, 0.3);
+      --border-glow: rgba(255, 0, 60, 0.85);
+      --text-main: #0c0e17;
+      --text-muted: #555d77;
+      --card-shadow: 0 8px 20px rgba(255, 0, 60, 0.12);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: 'Poppins', 'Hind Siliguri', -apple-system, sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+      padding-bottom: 75px;
+    }
+
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-main);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--neon-red);
+      border-radius: 4px;
+    }
+
+    #particle-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      pointer-events: none;
+    }
+
+    .cyber-grid-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        linear-gradient(to right, rgba(255, 0, 60, 0.035) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 0, 60, 0.035) 1px, transparent 1px);
+      background-size: 35px 35px;
+      z-index: -1;
+      pointer-events: none;
+      mask-image: radial-gradient(circle at center, black 40%, transparent 95%);
+    }
+
+    /* সাইটের ব্যাকগ্রাউন্ড ওয়ালপেপার */
+    .custom-bg-layer {
+      position: fixed;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=1600&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.18;
+      z-index: -3;
+      filter: blur(2px);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 0.9rem;
+    }
+
+    .neon-text {
+      color: #fff;
+      text-shadow: 0 0 8px var(--neon-red), 0 0 18px rgba(255, 0, 60, 0.7);
+    }
+
+    .section-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.4rem;
+      text-align: center;
+      margin: 0 auto 1.1rem;
+      letter-spacing: 2px;
+      position: relative;
+      display: table;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 15%;
+      width: 70%;
+      height: 2.5px;
+      background: linear-gradient(90deg, transparent, var(--neon-red), transparent);
+      box-shadow: 0 0 8px var(--neon-red);
+    }
+
+    .glass-card {
+      background: var(--bg-card);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--border-color);
+      border-radius: 18px;
+      box-shadow: var(--card-shadow);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .glass-card:hover {
+      border-color: var(--border-glow);
+      box-shadow: 0 8px 25px rgba(255, 0, 60, 0.22);
+    }
+
+    /* ===================================================
+       2. TOP BAR & CONTROLS
+    =================================================== */
+    header.top-nav {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(6, 7, 11, 0.85);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(255, 0, 60, 0.15);
+    }
+
+    .nav-inner {
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 900;
+      font-size: 1.15rem;
+      color: #fff;
+      letter-spacing: 1px;
+    }
+
+    .logo-brand span {
+      color: var(--neon-red);
+      text-shadow: 0 0 10px var(--neon-red);
+    }
+
+    .desktop-nav-links {
+      display: none;
+      gap: 1.5rem;
+    }
+
+    .desktop-nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      transition: var(--transition);
+    }
+
+    .desktop-nav-links a:hover,
+    .desktop-nav-links a.active {
+      color: var(--neon-red);
+      text-shadow: 0 0 8px rgba(255, 0, 60, 0.6);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .action-circle-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 0, 60, 0.1);
+      border: 1px solid var(--border-color);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      font-size: 0.88rem;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .action-circle-btn:hover {
+      background: var(--neon-red);
+      color: #fff;
+      box-shadow: 0 0 12px var(--neon-red);
+      transform: scale(1.06);
+    }
+
+    /* ===================================================
+       3. HERO / PROFILE SECTION
+    =================================================== */
+    .hero-section {
+      padding: 1rem 0 0.8rem;
+    }
+
+    .profile-master-card {
+      padding: 0 0 1.5rem;
+      text-align: center;
+      border-radius: 20px;
+    }
+
+    .fb-cover-container {
+      position: relative;
+      width: 100%;
+      height: 165px;
+      background: #111422;
+      overflow: hidden;
+    }
+
+    .fb-cover-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    .cover-gradient-shade {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(6,7,11,0.2) 0%, rgba(6,7,11,0.85) 100%);
+    }
+
+    .avatar-wrapper {
+      position: relative;
+      width: 130px;
+      height: 130px;
+      margin: -65px auto 0.8rem;
+      z-index: 10;
+    }
+
+    .avatar-glow-ring {
+      position: absolute;
+      inset: -5px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, var(--neon-red), var(--neon-pink), #ff5e00, var(--neon-red));
+      background-size: 300% 300%;
+      animation: rotateGlow 5s linear infinite;
+      filter: blur(4px);
+    }
+
+    @keyframes rotateGlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .profile-img {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3.5px solid #06070b;
+      background: #000;
+      z-index: 2;
+    }
+
+    .vip-badge-tag {
+      position: absolute;
+      bottom: 2px;
+      right: 6px;
+      z-index: 3;
+      background: linear-gradient(135deg, #ff003c, #b00028);
+      color: #fff;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      box-shadow: 0 0 10px rgba(255, 0, 60, 0.9);
+      border: 1px solid #fff;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0, 255, 128, 0.1);
+      border: 1px solid rgba(0, 255, 128, 0.35);
+      color: #00ff88;
+      padding: 3px 12px;
+      border-radius: 30px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      background: #00ff88;
+      border-radius: 50%;
+      box-shadow: 0 0 6px #00ff88;
+      animation: blink 1.4s infinite ease-in-out;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.7); }
+    }
+
+    .profile-name {
+      font-size: 1.45rem;
+      font-weight: 800;
+      margin-bottom: 0.2rem;
+      line-height: 1.3;
+    }
+
+    .username-badge-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 0, 60, 0.08);
+      border: 1px dashed rgba(255, 0, 60, 0.4);
+      padding: 4px 12px;
+      border-radius: 20px;
+      cursor: pointer;
+      margin-bottom: 0.6rem;
+      transition: var(--transition);
+    }
+
+    .username-badge-wrap:hover {
+      background: rgba(255, 0, 60, 0.2);
+      border-color: var(--neon-red);
+    }
+
+    .username-text {
+      font-size: 0.85rem;
+      color: var(--neon-red);
+      font-weight: 600;
+    }
+
+    .typing-container {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 0.6rem;
+      min-height: 24px;
+    }
+
+    .typed-text {
+      color: var(--neon-cyan);
+      text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+    }
+
+    .cursor-blink {
+      display: inline-block;
+      width: 2px;
+      background-color: var(--neon-red);
+      animation: cursorBlink 0.8s infinite;
+    }
+
+    @keyframes cursorBlink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    .bangla-bio-card {
+      max-width: 580px;
+      margin: 0.6rem auto;
+      padding: 0.75rem 1.1rem;
+      background: rgba(18, 11, 22, 0.55);
+      border-left: 3.5px solid var(--neon-red);
+      border-radius: 10px;
+      font-size: 0.92rem;
+      line-height: 1.5;
+      color: #e2e8f0;
+      font-family: 'Hind Siliguri', sans-serif;
+    }
+
+    .signature-container {
+      margin-top: 0.6rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* ===================================================
+       4. ABOUT ME SECTION
+    =================================================== */
+    .about-section {
+      padding: 1.2rem 0;
+    }
+
+    .about-content-card {
+      padding: 1.4rem 1.2rem;
+    }
+
+    .about-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.9rem;
+      padding-bottom: 0.9rem;
+      border-bottom: 1px solid rgba(255, 0, 60, 0.15);
+    }
+
+    .about-avatar-mini {
+      width: 55px;
+      height: 55px;
+      border-radius: 14px;
+      object-fit: cover;
+      border: 2px solid var(--neon-red);
+    }
+
+    .about-header-text h3 {
+      font-size: 1.15rem;
+      font-weight: 800;
+    }
+
+    .country-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.8rem;
+      color: var(--neon-red);
+      font-weight: 600;
+    }
+
+    .about-paragraph {
+      font-family: 'Hind Siliguri', sans-serif;
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: #d1d5db;
+      margin-bottom: 1.1rem;
+    }
+
+    .interest-title {
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      margin-bottom: 0.6rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .interests-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 1.2rem;
+    }
+
+    .interest-chip {
+      background: rgba(255, 0, 60, 0.08);
+      border: 1px solid var(--border-color);
+      padding: 5px 12px;
+      border-radius: 16px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #fff;
+      transition: var(--transition);
+    }
+
+    .motivational-quote-box {
+      background: linear-gradient(135deg, rgba(255, 0, 60, 0.1), rgba(0, 0, 0, 0.35));
+      border: 1px solid var(--border-glow);
+      border-radius: 12px;
+      padding: 0.9rem;
+      text-align: center;
+    }
+
+    .quote-text {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 3px;
+    }
+
+    .quote-author {
+      font-size: 0.72rem;
+      color: var(--neon-red);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    /* ===================================================
+       5. FEATURED VIDEO SHOWCASE SECTION
+    =================================================== */
+    .video-section {
+      padding: 1.2rem 0;
+    }
+
+    .video-content-card {
+      padding: 1.2rem;
+    }
+
+    .video-player-box {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1.5px solid var(--border-color);
+      box-shadow: 0 0 15px rgba(255, 0, 60, 0.25);
+      background: #000;
+    }
+
+    .video-player-box iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .video-description {
+      margin-top: 0.9rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .video-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(255, 0, 60, 0.12);
+      border: 1px solid var(--border-color);
+      padding: 3px 10px;
+      border-radius: 12px;
+      color: var(--neon-red);
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    /* ===================================================
+       6. SOCIAL MEDIA LINKS SECTION
+    =================================================== */
+    .social-section {
+      padding: 1.2rem 0;
+    }
+
+    .social-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+
+    .social-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.85rem 1.1rem;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .social-left {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .social-icon-box {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      font-size: 1.25rem;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: var(--transition);
+    }
+
+    .social-info h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .social-info p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .social-arrow {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(255, 0, 60, 0.08);
+      display: grid;
+      place-items: center;
+      font-size: 0.8rem;
+      color: var(--neon-red);
+      transition: var(--transition);
+    }
+
+    .social-card:hover .social-arrow {
+      background: var(--neon-red);
+      color: #fff;
+      transform: translateX(3px);
+    }
+
+    .social-card[data-platform="tiktok"]:hover .social-icon-box { background: #00f2fe; color: #000; box-shadow: 0 0 12px #00f2fe; }
+    .social-card[data-platform="facebook"]:hover .social-icon-box { background: #1877f2; color: #fff; box-shadow: 0 0 12px #1877f2; }
+    .social-card[data-platform="instagram"]:hover .social-icon-box { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%); box-shadow: 0 0 12px #d6249f; }
+    .social-card[data-platform="whatsapp"]:hover .social-icon-box { background: #25d366; color: #fff; box-shadow: 0 0 12px #25d366; }
+    .social-card[data-platform="telegram"]:hover .social-icon-box { background: #229ed9; color: #fff; box-shadow: 0 0 12px #229ed9; }
+    .social-card[data-platform="youtube"]:hover .social-icon-box { background: #ff0000; color: #fff; box-shadow: 0 0 12px #ff0000; }
+    .social-card[data-platform="discord"]:hover .social-icon-box { background: #5865f2; color: #fff; box-shadow: 0 0 12px #5865f2; }
+    .social-card[data-platform="x"]:hover .social-icon-box { background: #ffffff; color: #000; box-shadow: 0 0 12px #ffffff; }
+
+    /* ===================================================
+       7. CONTACT SECTION
+    =================================================== */
+    .contact-section {
+      padding: 1.2rem 0;
+    }
+
+    .contact-card-inner {
+      padding: 1.4rem 1.1rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 9px;
+      margin-top: 1rem;
+    }
+
+    .contact-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.85rem 1.1rem;
+      border-radius: 12px;
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-color);
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .contact-btn:hover {
+      background: rgba(255, 0, 60, 0.15);
+      border-color: var(--neon-red);
+      transform: translateY(-2px);
+    }
+
+    .contact-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .contact-left i {
+      font-size: 1.15rem;
+      color: var(--neon-red);
+      flex-shrink: 0;
+    }
+
+    /* ===================================================
+       8. FOOTER
+    =================================================== */
+    footer {
+      text-align: center;
+      padding: 1.5rem 0 1rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      margin-top: 1.2rem;
+    }
+
+    .footer-vip-mark {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1rem;
+      color: #fff;
+      margin-bottom: 0.3rem;
+      letter-spacing: 2px;
+    }
+
+    /* ===================================================
+       9. MOBILE BOTTOM NAVIGATION
+    =================================================== */
+    .mobile-bottom-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background: rgba(7, 9, 14, 0.94);
+      backdrop-filter: blur(20px);
+      border-top: 1px solid rgba(255, 0, 60, 0.25);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      z-index: 150;
+    }
+
+    .mobile-nav-link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.68rem;
+      gap: 3px;
+      flex: 1;
+      height: 100%;
+      transition: var(--transition);
+    }
+
+    .mobile-nav-link i {
+      font-size: 1.05rem;
+    }
+
+    .mobile-nav-link.active,
+    .mobile-nav-link:hover {
+      color: var(--neon-red);
+      text-shadow: 0 0 10px rgba(255, 0, 60, 0.6);
+    }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 72px;
+      right: 14px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--neon-red);
+      color: #fff;
+      border: none;
+      display: grid;
+      place-items: center;
+      font-size: 0.95rem;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(255, 0, 60, 0.6);
+      z-index: 90;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+    }
+
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .toast-box {
+      position: fixed;
+      bottom: 75px;
+      left: 50%;
+      transform: translateX(-50%) translateY(40px);
+      background: #0f111a;
+      border: 1px solid var(--neon-red);
+      color: #fff;
+      padding: 8px 18px;
+      border-radius: 25px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      box-shadow: 0 0 20px rgba(255, 0, 60, 0.5);
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toast-box.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    @media (min-width: 768px) {
+      body {
+        padding-bottom: 0;
+      }
+      .desktop-nav-links {
+        display: flex;
+      }
+      .mobile-bottom-bar {
+        display: none;
+      }
+      .fb-cover-container {
+        height: 240px;
+      }
+      .avatar-wrapper {
+        width: 155px;
+        height: 155px;
+        margin-top: -75px;
+      }
+      .social-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+      .contact-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .back-to-top {
+        bottom: 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Custom Background Wallpaper Layer -->
+  <div id="customBg" class="custom-bg-layer"></div>
+
+  <!-- Animated Interactive Canvas -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- Cyber Grid -->
+  <div class="cyber-grid-overlay"></div>
+
+  <!-- ===================================================
+       TOP NAVIGATION BAR
+  =================================================== -->
+  <header class="top-nav">
+    <div class="container nav-inner">
+      <a href="#home" class="logo-brand">
+        <i class="fa-solid fa-bolt" style="color: var(--neon-red);"></i>
+        SHAKIB<span>.AHMED</span>
+      </a>
+
+      <nav class="desktop-nav-links">
+        <a href="#home" class="active"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="#about"><i class="fa-solid fa-user"></i> About</a>
+        <a href="#videos"><i class="fa-solid fa-play"></i> Videos</a>
+        <a href="#socials"><i class="fa-solid fa-share-nodes"></i> Socials</a>
+        <a href="#contact"><i class="fa-solid fa-envelope"></i> Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Quick Video Link Button -->
+        <a href="#videos" class="action-circle-btn" title="Watch Videos">
+          <i class="fa-solid fa-play"></i>
+        </a>
+
+        <!-- Theme Toggle Button -->
+        <button id="themeToggleBtn" class="action-circle-btn" title="Toggle Mode">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    
+    <!-- ===================================================
+         HERO SECTION (FACEBOOK STYLE COVER & PROFILE)
+    =================================================== -->
+    <section id="home" class="hero-section">
+      <div class="glass-card profile-master-card">
+        
+        <div class="fb-cover-container">
+          <img 
+            id="coverPhotoImg" 
+            src="https://i.ibb.co/dJ6WnbtL/1000018934.jpg" 
+            alt="Cyber Cover Banner" 
+            class="fb-cover-img"
+          />
+          <div class="cover-gradient-shade"></div>
+        </div>
+
+        <div class="avatar-wrapper">
+          <div class="avatar-glow-ring"></div>
+          <img 
+            src="https://i.ibb.co/Y4STcXpC/1000018932.jpg" 
+            alt="Shakib Chowdhury Profile" 
+            class="profile-img"
+          />
+          <div class="vip-badge-tag"><i class="fa-solid fa-crown"></i> VIP</div>
+        </div>
+
+        <div>
+          <div class="status-pill">
+            <div class="status-dot"></div>
+            <span>ONLINE & AVAILABLE</span>
+          </div>
+        </div>
+
+        <h1 class="profile-name">
+          <span class="neon-text">SHAKIB AHMED</span>
+        </h1>
+
+        <div>
+          <div class="username-badge-wrap" onclick="copyUsername('@shakib_baby_1')">
+            <i class="fa-regular fa-copy" style="color: var(--neon-red);"></i>
+            <span class="username-text">@shakib_baby_1</span>
+          </div>
+        </div>
+
+        <div class="typing-container">
+          <span id="typing-element" class="typed-text"></span><span class="cursor-blink">&nbsp;</span>
+        </div>
+
+        <div class="bangla-bio-card">
+          <i class="fa-solid fa-quote-left" style="color: var(--neon-red); margin-right: 5px;"></i>
+          আমি একজন সাধারণ ছেলে, কিন্তু স্বপ্নগুলো আমার সাধারণ না! 🚀
+          <i class="fa-solid fa-quote-right" style="color: var(--neon-red); margin-left: 5px;"></i>
+        </div>
+
+        <div class="signature-container"></div>
+
+      </div>
+    </section>
+
+    <!-- ===================================================
+         ABOUT ME SECTION
+    =================================================== -->
+    <section id="about" class="about-section">
+      <h2 class="section-title">ABOUT ME</h2>
+      
+      <div class="glass-card about-content-card">
+        <div class="about-header">
+          <img 
+            src="https://i.ibb.co/Y4STcXpC/1000018932.jpg" 
+            alt="Shakib" 
+            class="about-avatar-mini"
+          />
+          <div class="about-header-text">
+            <h3>FARSAN ISLAM SHAKIB<span style="color: var(--neon-red);">(শাকিব)</span></h3>
+            <div class="country-tag">
+              <i class="fa-solid fa-location-dot"></i> Bangladesh 🇧🇩
+            </div>
+          </div>
+        </div>
+
+        <p class="about-paragraph">
+          হ্যালো! আমি শাকিব চৌধুরী। ডিজিটাল কনটেন্ট তৈরি, ক্রিয়েটিভ ভিডিও এডিটিং, প্রিমিয়াম ভিজ্যুয়াল আর্ট এবং টেকনোলজি এক্সপ্লোর করা আমার প্যাশন। সাইবার কালচার ও গেমিং ইউনিভার্সে সময় কাটাতে ভালোবাসি। সবসময় নতুন কিছু শেখা এবং নিজের প্রতিটি কাজে ইউনিকনেস বজায় রাখাই আমার লক্ষ্য।
+        </p>
+
+        <div class="interest-title"><i class="fa-solid fa-fire"></i> Interests & Passions</div>
+        <div class="interests-wrap">
+          <div class="interest-chip"><i class="fa-solid fa-video" style="color: #ff0055;"></i> Video Editing</div>
+          <div class="interest-chip"><i class="fa-solid fa-gamepad" style="color: #00f3ff;"></i> Gaming</div>
+          <div class="interest-chip"><i class="fa-solid fa-microchip" style="color: #00ff88;"></i> Technology</div>
+          <div class="interest-chip"><i class="fa-solid fa-hashtag" style="color: #ff9900;"></i> Social Media</div>
+          <div class="interest-chip"><i class="fa-solid fa-wand-magic-sparkles" style="color: #ff1493;"></i> VFX & Design</div>
+        </div>
+
+        <div class="motivational-quote-box">
+          <div class="quote-text">"Big Dreams Need Hard Work."</div>
+          <div class="quote-author">— Shakib Philosophy</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================
+         FEATURED VIDEO SECTION (সরাসরি প্লে হওয়ার জন্য ফিক্সড)
+    =================================================== -->
+    <section id="videos" class="video-section">
+      <h2 class="section-title">FEATURED VIDEO</h2>
+
+      <div class="glass-card video-content-card">
+        <!-- ফিক্সড YouTube Embed প্লেয়ার -->
+        <div class="video-player-box">
+          <iframe 
+            src="https://www.youtube.com/embed/0o_gdJi8KUk?enablejsapi=1&rel=0" 
+            title="VIP Featured Video" 
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <div class="video-description">
+          <span style="font-weight: 600; color: #fff;">
+            <i class="fa-solid fa-clapperboard" style="color: var(--neon-red); margin-right: 6px;"></i>
+            Creative Video Portfolio & Reel
+          </span>
+          <span class="video-badge">
+            <i class="fa-solid fa-circle-play"></i> 4K ULTRA HD
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================
+         SOCIAL MEDIA LINKS SECTION
+    =================================================== -->
+    <section id="socials" class="social-section">
+      <h2 class="section-title">CONNECT WITH ME</h2>
+
+      <div class="social-grid">
+        <!-- 1. TikTok -->
+        <a href="https://www.tiktok.com/@shakib_baby_1" target="_blank" rel="noopener noreferrer" class="glass-card social-card" data-platform="tiktok">
+          <div class="social-left">
+            <div class="social-icon-box"><i class="fa-brands fa-tiktok"></i></div>
+            <div class="social-info">
+              <h4>TikTok</h4>
+              <p>@shakib_baby_1</p>
+            </div>
+          </div>
+          <div class="social-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+        </a>
+
+        <!-- 2. Facebook -->
+        <a href="https://www.facebook.com/sakibchowdhury2826" target="_blank" rel="noopener noreferrer" class="glass-card social-card" data-platform="facebook">
+          <div class="social-left">
+            <div class="social-icon-box"><i class="fa-brands fa-facebook-f"></i></div>
+            <div class="social-info">
+              <h4>Facebook</h4>
+              <p>SHAKIB (Official Profile)</p>
+            </div>
+          </div>
+          <div class="social-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+        </a>
+
+        <!-- 3. Instagram -->
+        <a href="https://www.instagram.com/muhammad.shakib.0/" target="_blank" rel="noopener noreferrer" class="glass-card social-card" data-platform="instagram">
+          <div class="social-left">
+            <div class="social-icon-box"><i class="fa-brands fa-instagram"></i></div>
+            <div class="social-info">
+              <h4>Instagram</h4>
+              <p>@muhammad.shakib.0</p>
+            </div>
+          </div>
+          <div class="social-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+        </a>
+
+        <!-- 4. WhatsApp -->
+        <a href="https://wa.me/1403641813" target="_blank" rel="noopener noreferrer" class="glass-card social-card" data-platform="whatsapp">
+          <div class="social-left">
+            <div class="social-icon-box"><i class="fa-brands fa-whatsapp"></i></div>
+            <div class="social-info">
+              <h4>WhatsApp</h4>
+              <p>Chat With Me (Instant)</p>
+            </div>
+          </div>
+          <div class="social-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+        </a>
+
+        <!-- 5. Telegram -->
+        <a href="https://t.me/Shakib_Editor" target="_blank" rel="noopener noreferrer" class="glass-card social-card" data-platform="telegram">
+          <div class="social-left">
+            <div class="social-icon-box"><i class="fa-brands fa-telegram"></i></div>
+            <div class="social-info">
+              <h4>Telegram</h4>
+              <p>@GFX_SHAKIB</p>
+            </div>
+          </div>
+          <div class="social-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+        </a>
+
+        <!-- 6. YouTube -->
+        <a href="https://www.youtube.com/MDShakibG" target="_blank" rel="noopener noreferrer" class="glass-card social-card" data-platform="youtube">
+          <div class="social-left">
+            <div class="social-icon-box"><i class="fa-brands fa-youtube"></i></div>
+            <div class="social-info">
+              <h4>YouTube</h4>
+              <p>My Official Channel</p>
+            </div>
+          </div>
+          <div class="social-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+        </a>
+
+        <!-- 7. Discord -->
+        <a href="https://discord.com" target="_blank" rel="noopener noreferrer" class="glass-card social-card" data-platform="discord">
+          <div class="social-left">
+            <div class="social-icon-box"><i class="fa-brands fa-discord"></i></div>
+            <div class="social-info">
+              <h4>Discord</h4>
+              <p>My VIP Community</p>
+            </div>
+          </div>
+          <div class="social-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+        </a>
+
+        <!-- 8. X (Twitter) -->
+        <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="glass-card social-card" data-platform="x">
+          <div class="social-left">
+            <div class="social-icon-box"><i class="fa-brands fa-x-twitter"></i></div>
+            <div class="social-info">
+              <h4>X (Twitter)</h4>
+              <p>@shakib_vip</p>
+            </div>
+          </div>
+          <div class="social-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===================================================
+         CONTACT SECTION
+    =================================================== -->
+    <section id="contact" class="contact-section">
+      <h2 class="section-title">GET IN TOUCH</h2>
+
+      <div class="glass-card contact-card-inner">
+        <p style="text-align: center; color: var(--text-muted); font-size: 0.88rem; margin-bottom: 0.8rem;">
+          যেকোনো ধরণের কোলাবোরেশন বা প্রজেক্টের জন্য নিচের মাধ্যমে যোগাযোগ করুন।
+        </p>
+
+        <div class="contact-grid">
+          <a href="https://t.me/GFX_SHAKIB" target="_blank" rel="noopener noreferrer" class="contact-btn">
+            <div class="contact-left">
+              <i class="fa-brands fa-telegram"></i>
+              <span>Telegram Direct</span>
+            </div>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+
+          <a href="https://wa.me/1403641813" target="_blank" rel="noopener noreferrer" class="contact-btn">
+            <div class="contact-left">
+              <i class="fa-brands fa-whatsapp"></i>
+              <span>WhatsApp Message</span>
+            </div>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+
+          <a href="https://www.facebook.com/sakibchowdhury2826" target="_blank" rel="noopener noreferrer" class="contact-btn">
+            <div class="contact-left">
+              <i class="fa-brands fa-facebook-messenger"></i>
+              <span>Facebook Messenger</span>
+            </div>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+
+          <a href="mailto:mdsakibg057@gmail.com?subject=আসসালামুওয়ালাইকুম_SHAKIB_VAI_ভাইয়া🌸✨🌿" class="contact-btn">
+            <div class="contact-left">
+              <i class="fa-solid fa-envelope"></i>
+              <span>Email Contact</span>
+            </div>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================================================
+       FOOTER
+  =================================================== -->
+  <footer>
+    <div class="container">
+      <p>© <span id="currentYear"></span> SHAKIB VIP BIO. All Rights Reserved.</p>
+      <p style="margin-top: 4px; font-size: 0.72rem; color: #ff003c;">Cyberpunk Edition • Built for HopWeb</p>
+    </div>
+  </footer>
+
+  <!-- ===================================================
+       MOBILE BOTTOM NAVIGATION BAR
+  =================================================== -->
+  <nav class="mobile-bottom-bar">
+    <a href="#home" class="mobile-nav-link active">
+      <i class="fa-solid fa-house"></i>
+      <span>Home</span>
+    </a>
+    <a href="#about" class="mobile-nav-link">
+      <i class="fa-solid fa-user"></i>
+      <span>About</span>
+    </a>
+    <a href="#videos" class="mobile-nav-link">
+      <i class="fa-solid fa-play"></i>
+      <span>Videos</span>
+    </a>
+    <a href="#socials" class="mobile-nav-link">
+      <i class="fa-solid fa-share-nodes"></i>
+      <span>Socials</span>
+    </a>
+    <a href="#contact" class="mobile-nav-link">
+      <i class="fa-solid fa-envelope"></i>
+      <span>Contact</span>
+    </a>
+  </nav>
+
+  <button id="backToTopBtn" class="back-to-top" title="Scroll to Top">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
+
+  <div id="toastBox" class="toast-box">
+    <i class="fa-solid fa-circle-check" style="color: #00ff88; font-size: 1rem;"></i>
+    <span id="toastMsg">Username Copied!</span>
+  </div>
+
+  <!-- ===================================================
+       JAVASCRIPT LOGIC
+  =================================================== -->
+  <script>
+    // 1. Current Year
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // 2. Typing Effect Animation
+    const typingElement = document.getElementById('typing-element');
+    const words = [
+      "Content Creator 🎥",
+      "Pro Video Editor ✂️",
+      "Hardcore Gamer 🎮",
+      "Tech Enthusiast ⚡",
+      "Cyber VIP Shakib 🔥"
+    ];
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typingSpeed = 100;
+
+    function typeEffect() {
+      const currentWord = words[wordIndex];
+      
+      if (isDeleting) {
+        typingElement.textContent = currentWord.substring(0, charIndex - 1);
+        charIndex--;
+        typingSpeed = 50;
+      } else {
+        typingElement.textContent = currentWord.substring(0, charIndex + 1);
+        charIndex++;
+        typingSpeed = 110;
+      }
+
+      if (!isDeleting && charIndex === currentWord.length) {
+        typingSpeed = 1800;
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        typingSpeed = 350;
+      }
+
+      setTimeout(typeEffect, typingSpeed);
+    }
+    typeEffect();
+
+    // 3. Toast Notification & Copy to Clipboard
+    function copyUsername(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text);
+      } else {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+      }
+      showToast(`Copied: ${text} ✨`);
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toastBox');
+      const toastMsg = document.getElementById('toastMsg');
+      toastMsg.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2300);
+    }
+
+    // 4. Theme Toggle (VIP Dark / Light)
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    themeToggleBtn.addEventListener('click', () => {
+      document.documentElement.classList.toggle('light');
+      const isLight = document.documentElement.classList.contains('light');
+      themeToggleBtn.innerHTML = isLight ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
+      showToast(isLight ? "VIP Light Crimson Mode" : "VIP Cyber Dark Mode");
+    });
+
+    // 5. Neon Particle Animation
+    const canvas = document.getElementById('particle-canvas');
+    const ctx = canvas.getContext('2d');
+    let particlesArray = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2 + 0.8;
+        this.speedX = (Math.random() - 0.5) * 0.5;
+        this.speedY = (Math.random() - 0.5) * 0.5;
+        this.color = Math.random() > 0.4 ? 'rgba(255, 0, 60, ' : 'rgba(255, 20, 147, ';
+        this.alpha = Math.random() * 0.7 + 0.2;
+      }
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.x > canvas.width) this.x = 0;
+        if (this.x < 0) this.x = canvas.width;
+        if (this.y > canvas.height) this.y = 0;
+        if (this.y < 0) this.y = canvas.height;
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = this.color + this.alpha + ')';
+        ctx.shadowBlur = 6;
+        ctx.shadowColor = '#ff003c';
+        ctx.fill();
+        ctx.shadowBlur = 0;
+      }
+    }
+
+    function initParticles() {
+      particlesArray = [];
+      const count = Math.min(Math.floor(window.innerWidth / 18), 45);
+      for (let i = 0; i < count; i++) {
+        particlesArray.push(new Particle());
+      }
+    }
+    initParticles();
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < particlesArray.length; i++) {
+        particlesArray[i].update();
+        particlesArray[i].draw();
+      }
+      requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+
+    // 6. Back to Top & Active Nav Highlighting
+    const backToTopBtn = document.getElementById('backToTopBtn');
+    const sections = document.querySelectorAll('section');
+    const desktopLinks = document.querySelectorAll('.desktop-nav-links a');
+    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 250) {
+        backToTopBtn.classList.add('show');
+      } else {
+        backToTopBtn.classList.remove('show');
+      }
+
+      let currentSectionId = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 110;
+        if (window.scrollY >= sectionTop) {
+          currentSectionId = section.getAttribute('id');
+        }
+      });
+
+      desktopLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${currentSectionId}`) {
+          link.classList.add('active');
+        }
+      });
+
+      mobileLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${currentSectionId}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
